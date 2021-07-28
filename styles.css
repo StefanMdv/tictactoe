@@ -1,22 +1,58 @@
-table{
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.player-panel {
+    display: flex;
+    font-size: 32px;
+}
+
+.player-panel img {
+    height: 60px;
+    width: 100px;
+    margin-right: 16px;
+}
+
+.player-panel div {
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 32px;
+}
+
+.player-inactive {
+    opacity: 0.5;
+}
+
+table {
     border-collapse: collapse;
 }
 
-tr{
+tr {
     width: 399px;
 }
 
-td{
+td {
+    position: relative;
     width: 133px;
     height: 133px;
     border: 5px solid black;
+    cursor: pointer;
 }
 
-tr:first-child td{
+td:hover {
+    background-color: rgba(168, 226, 120, 0.2);
+}
+
+tr:first-child td {
     border-top: 0;
 }
 
-tr td:first-child{
+tr td:first-child {
     border-left: 0;
 }
 
@@ -24,6 +60,67 @@ table tr:last-child td {
     border-bottom: 0;
 }
 
-table tr td:last-child{
+table tr td:last-child {
     border-right: 0;
+}
+
+.shape {
+    position: absolute;
+    width: 180px;
+    height: 105px;
+    left: -22px;
+    top: 16px;
+}
+
+.d-none {
+    display: none;
+}
+
+.horizontal-line {
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 350px;
+    position: absolute;
+    z-index: 99;
+    transform: scaleX(0.0);
+    transition: transform 225ms ease-in-out;
+}
+
+.make-vertical {
+    transform: rotate(90deg) scaleX(0.0);
+}
+
+.game-over{
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 999;
+    animation: zoomIn 225ms ease-in-out;
+}
+@keyframes zoomIn{
+    from{
+        opacity: 0;
+        transform: scale(0);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.restart-button{
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background-color: rgb(192, 127, 7);
+    width: 250px;
+    height: 100px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 60px;
+}
+
+.restart-button:hover{
+    background-color: rgb(122, 82, 8);
 }
