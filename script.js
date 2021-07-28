@@ -93,7 +93,7 @@ function restart() {
     document.getElementById('game-over').classList.add('d-none');
     document.getElementById('btn').classList.add('d-none');
 
-    for (let i = 0; i < 9; i++){
+    for (let i = 1; i < 9; i++){
         document.getElementById('line-' + i).classList.add('d-none');
     }
 
